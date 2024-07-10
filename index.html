@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WPPOOL</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        .font-yrsa {
+            font-family: "Yrsa", serif;
+        }
+    </style>
+
+</head>
+
+<body class=" bg-[#EDEDED] font-yrsa">
+    <div class="">
+        <!-- Navbar + Banner -->
+        <section>
+            <!-- Navbar -->
+            <div id="navbar" class="bg-[#2042B6] fixed w-full z-50 top-0 transition-all duration-300">
+                <div class=" container flex items-center justify-between p-5 max-w-screen-2xl mx-auto">
+                    <div class="flex items-center">
+                        <img id="logo" src="./Asset/logo-2.png" alt="Logo" class="hidden-logo w-full">
+
+
+                        <img id="logo-scrolled" src="./Asset/logo-1.png" alt="Scrolled Logo"
+                            class="visible-logo w-full">
+                    </div>
+                    <div class="flex gap-10 items-center">
+                        <div>
+                            <button id="share-border" class="px-4 py-4 border border-white rounded-full hidden md:block">
+                                <img id="share" src="./Asset/share (1).png" alt="" class="hidden-share w-full">
+
+                                <img id="share-scrolled" src="./Asset/share.png" alt="" class="w-full visible-share">
+                            </button>
+                        </div>
+
+                        <div>
+                            <button id="btn"
+                                class="text-white bg-blue-800 border border-white px-4 py-2 rounded-full hidden md:block">Download the
+                                2024
+                                Report</button>
+                        </div>
+                        <div class="">
+                            <button id="menu-button" onclick="toggleMenu()" class="text-white">
+                                <h3 id="menu-open-icon" class="text-2xl mt-2">☰</h3>
+                            </button>
+                        </div>
+
+
+                        <!-- toggle menu -->
+                        <div id="menu"
+                            class="hidden absolute top-0 w-96 right-0 lg:right-0 2xl:right-44 rounded-xl bg-white shadow-lg">
+
+                            <div class="flex gap-10 items-center my-5 lg:mx-5">
+                                <!-- share button in the toggle menu -->
+                                <div>
+                                    <button class="px-4 py-4 border bg-green-400 rounded-full">
+                                        <img id="share-scrolled" src="./Asset/share.png" alt=""
+                                            class="w-full visible-share">
+                                    </button>
+                                </div>
+
+                                <!-- downlaod button in the toggle menu -->
+                                <div>
+                                    <button
+                                        class="text-white bg-blue-800 border border-white px-4 py-2 rounded-full">Download
+                                        the
+                                        2024
+                                        Report</button>
+                                </div>
+
+                                <!-- close button in the toggle menu -->
+                                <button id="menu-button" onclick="toggleMenu()" class="text-2xl">
+
+                                    <img id="menu-close-icon" class="text-xl hidden" src="./Asset/cross.png" alt="">
+
+                                </button>
+                            </div>
+                            <ul class="flex flex-col p-4 space-y-2">
+                                <li><a href="#" class="text-black text-lg">The WPPOOL Index</a></li>
+                                <li><a href="#" class="text-black text-lg">All Companies</a></li>
+                                <li><a href="#" class="text-black text-lg">State of USA</a></li>
+                                <li><a href="#" class="text-black text-lg">Stories & Ideas</a></li>
+                                <li><a href="#" class="text-black text-lg">WPPOOL Portfolio Companies</a></li>
+                                <li class="py-5"><a href="#" class="text-blue-700 text-lg ">Visit WPPOOL</a></li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Banner Content -->
+
+            <div class="relative h-screen flex items-center justify-center text-white  bg-[#2042B6]  banner-background">
+                <div class="absolute top-0 left-0 right-0 bottom-0 bg-opacity-100 bg-cover bg-no-repeat bg-center mix-blend-multiply "
+                    style="background-image: url('./Asset/Banner_dots.svg');
+                background-size: 40%;"></div>
+
+
+                <div class="container grid grid-cols-1 lg:grid-cols-4 z-10 max-w-screen-2xl mx-auto">
+                    <div class="flex flex-col justify-start space-y-10 mt-8 mx-10 hidden lg:block">
+                        <div>
+                            <p class="text-5xl">60</p>
+                            <p class="text-xl">Companies</p>
+                        </div>
+                        <div>
+                            <p class="text-5xl">$100B</p>
+                            <p class="text-xl">Market cap</p>
+                        </div>
+                        <div>
+                            <p class="text-5xl">3.5x</p>
+                            <p class="text-xl">Revenue multiple</p>
+                        </div>
+                        <div>
+                            <p class="text-5xl">60%</p>
+                            <p class="text-xl">LTM avg. revenue growth rate</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col justify-center items-center text-center lg:col-span-2">
+                        <h6 class="text-6xl">The WPPOOL Index</h6>
+                        <p class="mt-4 text-xl">Monitor the performance of emerging, publicly traded, financial
+                            technology
+                            companies</p>
+                    </div>
+
+                    <div class="absolute shadow-lg bottom-20 right-40 hidden md:block">
+                        <button class=" bg-white rounded-full p-4">
+                            <img src="./Asset/arrow_downward_alt.png" alt="">
+                        </button>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- Wppool Index -->
+        <section class="max-w-screen-2xl mx-auto bg-white rounded-xl mt-20">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-3 md:gap-5 lg:gap-10 p-2 md:p-4">
+                <!-- Sidebar -->
+                <div class="bg-[#EFF3F6] rounded-lg">
+                    <nav class="p-4">
+                        <ul>
+                            <div class="flex justify-between">
+                                <li class="py-2"><a href="#" class="text-blue-600 text-xl">The Index</a></li>
+                                <p class="flex items-center text-3xl">-</p>
+                            </div>
+
+                            <div class="flex justify-between">
+                                <li class="py-2"><a href="#" class="text-gray-700 text-xl">The Index Tab Two</a></li>
+                                <p class="flex items-center text-3xl">+</p>
+                            </div>
+
+                            <div class="flex justify-between">
+                                <li class="py-2"><a href="#" class="text-gray-700 text-xl">The Index Tab Three</a></li>
+                                <p class="flex items-center text-3xl">+</p>
+                            </div>
+
+                            <div class="flex justify-between">
+                                <li class="py-2"><a href="#" class="text-gray-700 text-xl">The Index Tab Four</a></li>
+                                <p class="flex items-center text-3xl">+</p>
+                            </div>
+
+                            <div class="flex justify-between">
+                                <li class="py-2"><a href="#" class="text-gray-700 text-xl">The Index Tab Five</a></li>
+                                <p class="flex items-center text-3xl">+</p>
+                            </div>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Main content -->
+                <div class="col-span-4">
+                    <main class="flex-1 p-6">
+                        <header class="flex items-center">
+                            <img src="./Asset/Union.png" alt="">
+                            <h1 class="text-5xl">The WPPOOL Index</h1>
+                        </header>
+
+                        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            <!-- wppool -->
+                            <div class="bg-gray-100 rounded-lg shadow-md p-4 flex items-center justify-between">
+                                <div>
+                                    <p class="text-red-600 text-4xl font-normal">+66.2%</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <p class="text-gray-700 font-medium text-right">WPPOOL <br> Index</p>
+                                    <div class="bg-red-600 h-6 w-1 ml-2 rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-100 rounded-lg shadow-md p-4 flex items-center justify-between">
+                                <div>
+                                    <p class="text-blue-600 text-4xl font-semibold">+26.6%</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <p class="text-gray-700 font-medium text-right">Google <br> Index</p>
+                                    <div class="bg-blue-600 h-6 w-1 ml-2 rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-100 rounded-lg shadow-md p-4 flex items-center justify-between">
+                                <div>
+                                    <p class="text-green-600 text-4xl font-semibold">+34.1%</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <p class="text-gray-700 font-medium">Microsoft</p>
+                                    <div class="bg-green-600 h-6 w-1 ml-2 rounded-full"></div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-100 rounded-lg shadow-md p-4 flex items-center justify-between">
+                                <div>
+                                    <p class="text-purple-600 text-4xl font-semibold">+17%</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <p class="text-gray-700 font-medium text-right">Twitter <br> Index</p>
+                                    <div class="bg-purple-600 h-6 w-1 ml-2 rounded-full"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="mt-3 lg:flex md:w-3/4 lg:w-full lg:justify-between">
+                            <div class="flex gap-5">
+                                <select
+                                    class="bg-[#2042B6] text-md font-normal text-white px-10 md:px-14 py-2 rounded-full my-3">
+                                    <option value="sectors">Sectors</option>
+                                </select>
+
+
+                                <select
+                                    class="bg-[#2042B6] text-md font-normal text-white px-10 md:px-14 py-2 rounded-full my-3">
+                                    <option value="ipo">Types of IPO</option>
+                                </select>
+                            </div>
+
+
+                            <div class="bg-gray-200 rounded-full pl-20 flex space-x-2">
+                                <button class="px-2 text-gray-600">1Y</button>
+                                <button class="px-2 text-gray-600">YTD</button>
+                                <button class="px-2 bg-blue-600 text-white rounded-full shadow">6M</button>
+                                <button class="px-2 text-gray-600">1M</button>
+                                <button class="px-2 text-gray-600">1W</button>
+                            </div>
+                        </div>
+
+                        <section class="mt-6 bg-white h-lvh shadow-lg p-4 rounded-lg">
+                            <canvas id="myChart"></canvas>
+
+                        </section>
+                    </main>
+                </div>
+
+        </section>
+
+
+        <!-- All companies -->
+        <section class="max-w-screen-2xl mx-auto my-20 lg:mb-40 lg:mt-20">
+            <div class="bg-white rounded-xl py-16 px-8">
+                <div class="flex justify-between items-center mb-14">
+                    <h2 class="text-5xl ">All Companies</h2>
+                    <div class="relative w-1/2">
+                        <input type="text"
+                            class="border rounded-xl py-3 pl-10 pr-4 w-full focus:outline-none focus:ring focus:border-blue-300 bg-gray-100 placeholder-black text-xl font-semibold"
+                            placeholder="Search Companies">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="overflow-x-auto scrollbar h-80">
+                    <table class="min-w-full bg-white">
+                        <thead>
+                            <tr class="font-semibold">
+                                <th class="py-2 px-4 border-b text-left">Company</th>
+                                <th class="py-2 px-4 border-b text-left">Ticker</th>
+                                <th class="py-2 px-4 border-b text-left">Vertical</th>
+                                <th class="py-2 px-4 border-b text-left">Price</th>
+                                <th class="py-2 px-4 border-b text-left">Market Cap ($B)</th>
+                                <th class="py-2 px-4 border-b text-left">Revenue Growth</th>
+                                <th class="py-2 px-4 border-b text-left">Gross Margin</th>
+                                <th class="py-2 px-4 border-b text-left">EV/Revenue</th>
+                                <th class="py-2 px-4 border-b text-left">YTD Performance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Row 1 -->
+                            <tr class="bg-gray-100">
+                                <td class="py-2 px-4 border-b">Adyen</td>
+                                <td class="py-2 px-4 border-b">AFRM</td>
+                                <td class="py-2 px-4 border-b">Payments</td>
+                                <td class="py-2 px-4 border-b">$17.15</td>
+                                <td class="py-2 px-4 border-b">$50.5</td>
+                                <td class="py-2 px-4 border-b">49.0%</td>
+                                <td class="py-2 px-4 border-b">15.8%</td>
+                                <td class="py-2 px-4 border-b">6.3</td>
+                                <td class="py-2 px-4 border-b">24.3%</td>
+                            </tr>
+                            <!-- Row 2 -->
+                            <tr>
+                                <td class="py-2 px-4 border-b">Affirm</td>
+                                <td class="py-2 px-4 border-b">AFRM</td>
+                                <td class="py-2 px-4 border-b">Lending</td>
+                                <td class="py-2 px-4 border-b">$16.12</td>
+                                <td class="py-2 px-4 border-b">$4.7</td>
+                                <td class="py-2 px-4 border-b">32.0%</td>
+                                <td class="py-2 px-4 border-b">48.7%</td>
+                                <td class="py-2 px-4 border-b">4.9</td>
+                                <td class="py-2 px-4 border-b">77.1%</td>
+                            </tr>
+                            <!-- Row 3 -->
+                            <tr class="bg-gray-100">
+                                <td class="py-2 px-4 border-b">Alkami Technology</td>
+                                <td class="py-2 px-4 border-b">ALKT</td>
+                                <td class="py-2 px-4 border-b">B2B SaaS</td>
+                                <td class="py-2 px-4 border-b">$16.27</td>
+                                <td class="py-2 px-4 border-b">$1.5</td>
+                                <td class="py-2 px-4 border-b">34.0%</td>
+                                <td class="py-2 px-4 border-b">53.0%</td>
+                                <td class="py-2 px-4 border-b">7.0</td>
+                                <td class="py-2 px-4 border-b">10.0%</td>
+                            </tr>
+                            <!-- Row 4 -->
+                            <tr>
+                                <td class="py-2 px-4 border-b">AvidXchange</td>
+                                <td class="py-2 px-4 border-b">AVDX</td>
+                                <td class="py-2 px-4 border-b">Payments</td>
+                                <td class="py-2 px-4 border-b">$10.21</td>
+                                <td class="py-2 px-4 border-b">$2.0</td>
+                                <td class="py-2 px-4 border-b">27.0%</td>
+                                <td class="py-2 px-4 border-b">61.5%</td>
+                                <td class="py-2 px-4 border-b">6.0</td>
+                                <td class="py-2 px-4 border-b">10.5%</td>
+                            </tr>
+                            <!-- Row 5 -->
+                            <tr class="bg-gray-100">
+                                <td class="py-2 px-4 border-b">Bakkt Holdings</td>
+                                <td class="py-2 px-4 border-b">BKKT</td>
+                                <td class="py-2 px-4 border-b">Wealth</td>
+                                <td class="py-2 px-4 border-b">$1.32</td>
+                                <td class="py-2 px-4 border-b">$0.1</td>
+                                <td class="py-2 px-4 border-b">38%</td>
+                                <td class="py-2 px-4 border-b">--</td>
+                                <td class="py-2 px-4 border-b">0.4</td>
+                                <td class="py-2 px-4 border-b">13.8%</td>
+                            </tr>
+                            <!-- Row 6 -->
+                            <tr>
+                                <td class="py-2 px-4 border-b">Virtu Financial Inc</td>
+                                <td class="py-2 px-4 border-b">VIRT</td>
+                                <td class="py-2 px-4 border-b">Wealth</td>
+                                <td class="py-2 px-4 border-b">$17.0</td>
+                                <td class="py-2 px-4 border-b">$3.1</td>
+                                <td class="py-2 px-4 border-b">-22.0%</td>
+                                <td class="py-2 px-4 border-b">38.2%</td>
+                                <td class="py-2 px-4 border-b">2.6</td>
+                                <td class="py-2 px-4 border-b">-17.8%</td>
+                            </tr>
+                            <!-- Row 7 -->
+                            <tr class="bg-gray-100">
+                                <td class="py-2 px-4 border-b">Adyen</td>
+                                <td class="py-2 px-4 border-b">AFRM</td>
+                                <td class="py-2 px-4 border-b">Payments</td>
+                                <td class="py-2 px-4 border-b">$17.15</td>
+                                <td class="py-2 px-4 border-b">$50.5</td>
+                                <td class="py-2 px-4 border-b">49.0%</td>
+                                <td class="py-2 px-4 border-b">15.8%</td>
+                                <td class="py-2 px-4 border-b">6.3</td>
+                                <td class="py-2 px-4 border-b">24.3%</td>
+                            </tr>
+                            <!-- Row 8 -->
+                            <tr>
+                                <td class="py-2 px-4 border-b">Affirm</td>
+                                <td class="py-2 px-4 border-b">AFRM</td>
+                                <td class="py-2 px-4 border-b">Lending</td>
+                                <td class="py-2 px-4 border-b">$16.12</td>
+                                <td class="py-2 px-4 border-b">$4.7</td>
+                                <td class="py-2 px-4 border-b">32.0%</td>
+                                <td class="py-2 px-4 border-b">48.7%</td>
+                                <td class="py-2 px-4 border-b">4.9</td>
+                                <td class="py-2 px-4 border-b">77.1%</td>
+                            </tr>
+                            <!-- Row 9 -->
+                            <tr class="bg-gray-100">
+                                <td class="py-2 px-4 border-b">Alkami Technology</td>
+                                <td class="py-2 px-4 border-b">ALKT</td>
+                                <td class="py-2 px-4 border-b">B2B SaaS</td>
+                                <td class="py-2 px-4 border-b">$16.27</td>
+                                <td class="py-2 px-4 border-b">$1.5</td>
+                                <td class="py-2 px-4 border-b">34.0%</td>
+                                <td class="py-2 px-4 border-b">53.0%</td>
+                                <td class="py-2 px-4 border-b">7.0</td>
+                                <td class="py-2 px-4 border-b">10.0%</td>
+                            </tr>
+                            <!-- Row 10 -->
+                            <tr>
+                                <td class="py-2 px-4 border-b">AvidXchange</td>
+                                <td class="py-2 px-4 border-b">AVDX</td>
+                                <td class="py-2 px-4 border-b">Payments</td>
+                                <td class="py-2 px-4 border-b">$10.21</td>
+                                <td class="py-2 px-4 border-b">$2.0</td>
+                                <td class="py-2 px-4 border-b">27.0%</td>
+                                <td class="py-2 px-4 border-b">61.5%</td>
+                                <td class="py-2 px-4 border-b">6.0</td>
+                                <td class="py-2 px-4 border-b">10.5%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="flex justify-center items-center gap-10 mt-14 drop-shadow-2xl">
+                    <button class="bg-[#2042B6] text-white px-4 py-2 rounded-full drop-shadow-2xl ">Download 'All
+                        Companies' Data</button>
+                    <button class="bg-[#2042B6] text-white px-4 py-2 rounded-full drop-shadow-2xl ">View
+                        Methodology</button>
+                </div>
+        </section>
+
+        <!-- future Listing -->
+        <section class="max-w-screen-2xl mx-auto">
+            <div class=" mx-5 md:mx-20 lg:mx-10 space-y-16 my-20">
+                <div class="text-center md:text-left">
+                    <h1 class="text-6xl mb-4">Potential Future Listings</h1>
+                    <p class="text-xl ">Porem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero
+                        et
+                        velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per
+                        conubia
+                        nostra, per inceptos himenaeos. </p>
+                </div>
+
+                <!-- cards -->
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 mx-2 md:mx-5">
+
+                    <!-- 1 -->
+                    <div class="bg-white w-44 xl:w-56 h-24 xl:h-28 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center">
+                            <img class="w-4/5" src="./Asset/future_listing/Group 227.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="bg-white w-44 xl:w-56 h-24  xl:h-28 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/future_listing/Group 219.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="bg-white w-44 xl:w-56 h-24  xl:h-28 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/future_listing/Group 220.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 4 -->
+                    <div class="bg-white w-44 xl:w-56 h-24  xl:h-28 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/future_listing/Group 221.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 5 -->
+                    <div class="bg-white w-44 xl:w-56 h-24  xl:h-28 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/future_listing/Group 222.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 6 -->
+                    <div class="bg-white w-44 xl:w-56 h-24  xl:h-28 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/future_listing/Group 226.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 7 -->
+                    <div class="bg-white w-44 xl:w-56 h-24  xl:h-28 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/future_listing/Group 223.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 8 -->
+                    <div class="bg-white w-44 xl:w-56 h-24  xl:h-28 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/future_listing/Group 224.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 9 -->
+                    <div class="bg-white w-44 xl:w-56 h-24  xl:h-28 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/future_listing/Group 225.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 10 -->
+                    <div class="bg-white w-44 xl:w-56 h-24  xl:h-28 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/future_listing/Group.png" alt="">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!--state of USA Carousel -->
+        <section class="max-w-screen-2xl mx-auto">
+            <div class=" w-11/12 h-full bg-no-repeat bg-cover bg-opacity-50 mx-4 md:mx-20 my-20" style="
+            background-image: url('./Asset/stateUsaBackground.png');
+            background-size: 45%;
+            background-position: right 10% bottom 10%;
+            ">
+                <h2 class="text-5xl text-center lg:text-left">State of USA</h2>
+                <div class="flex justify-center lg:justify-start">
+                    <select class="bg-[#2042B6] text-4xl text-white px-10 py-2 rounded-full my-3">
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                    </select>
+                </div>
+
+                <p class="text-lg text-[#191618] font-medium mb-4 text-center lg:text-left">Click through the slides or
+                    download the report to
+                    view
+                    natively on your device.</p>
+
+                <!-- caorusel -->
+                <div class="carousel">
+                    <div id="carousel-inner" class="carousel-inner space-x-10">
+                        <div class="carousel-item shadow-2xl">
+
+                            <img src="./Asset/slide-1.png" alt="Slide 1" class="rounded-lg w-full">
+
+                        </div>
+                        <div class="carousel-item shadow-2xl">
+                            <div class="flex flex-col items-center">
+                                <img src="./Asset/slide-2.png" alt="Slide 2" class="rounded-lg w-full">
+                            </div>
+                        </div>
+                        <div class="carousel-item shadow-2xl">
+                            <div class="flex flex-col items-center">
+                                <img src="./Asset/slide-1.png" alt="Slide 3" class="rounded-lg w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center flex-col lg:flex-row lg:justify-between gap-5 my-5">
+
+                    <div class="flex gap-5">
+                        <!-- previous and next button -->
+                        <div class="flex items-center space-x-2">
+                            <button id="prev"
+                                class="bg-white rounded-full p-2 md:p-4 focus:outline-none drop-shadow-2xl">
+                                <svg class="w-6 h-6 text-[#2042B6]" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M15 10a1 1 0 01-1 1H6.414l3.293 3.293a1 1 0 01-1.414 1.414l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L6.414 9H14a1 1 0 011 1z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                            <button id="next"
+                                class="bg-white rounded-full p-2 md:p-4 focus:outline-none drop-shadow-2xl">
+                                <svg class="w-6 h-6 text-[#2042B6]" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M5 10a1 1 0 011-1h7.586l-3.293-3.293a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414-1.414L13.586 11H6a1 1 0 01-1-1z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+
+                        <!-- page -->
+
+                        <div class="flex gap-3">
+                            <h3 class="flex items-center text-xl">Pages</h3>
+
+                            <select
+                                class="bg-white text-xl text-black px-5 md:px-8 py-2 md:py-3 rounded-full my-3 drop-shadow-2xl">
+                                <option value="2024">1 and 2</option>
+                                <option value="2023">2023</option>
+                            </select>
+
+                            <h3 class="flex items-center text-xl">of 37</h3>
+                        </div>
+                    </div>
+
+                    <!-- button -->
+                    <div class="flex items-center lg:pr-20 xl:pr-40">
+                        <button class="bg-[#2042B6] text-white px-4 py-3 rounded-full drop-shadow-2xl ">Download the
+                            2023 Report</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stories and ideas -->
+        <section class="max-w-screen-2xl mx-auto">
+            <div class="px-4 py-8 mx-4 md:mx-20 md:my-12">
+                <div class="mb-10 text-center lg:text-left">
+                    <h2 class="text-6xl mb-2">Stories & Ideas</h2>
+                    <p class="text-2xl">The latest news and updates</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20 mb-10">
+
+
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-lg shadow-md p-6 mt-10">
+                        <div class="flex items-center">
+                            <img src="/Asset/shagor.png" alt="Sahabuddin Sagor" class="-mt-16">
+                        </div>
+                        <div class=" pl-4">
+                            <p class="text-lg text-blue-600 font-medium">By: Sahabuddin Sagor</p>
+                            <p class=" text-xl mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                                mollitia.</p>
+                        </div>
+                        <div class="pl-4">
+                            <button
+                                class="bg-blue-600 text-white px-4 py-1 rounded-full mt-4 shadow hover:bg-blue-700">Read
+                                More</button>
+                        </div>
+                    </div>
+
+
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-lg shadow-md p-6 mt-10">
+                        <div class="flex items-center">
+                            <img src="/Asset/nayem.png" alt="Nayem Khan" class="-mt-16">
+                        </div>
+                        <div class="pl-4">
+                            <p class="text-lg text-blue-600 font-medium">By: Nayem Khan</p>
+                            <p class="text-xl mt-2">Lorem ipsum dolor sit amet consectetur</p>
+                        </div>
+                        <div class="pl-4">
+                            <button
+                                class="bg-blue-600 text-white px-4 py-1 rounded-full mt-4 shadow hover:bg-blue-700">Read
+                                More</button>
+                        </div>
+                    </div>
+
+
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-lg shadow-md p-6 mt-10">
+                        <div class="flex items-center">
+                            <img src="/Asset/shagor_carrot.png" alt="Shagor Sahabuddin" class="-mt-16">
+                        </div>
+                        <div class="pl-4">
+                            <p class="text-lg text-blue-600 font-medium">By: Shagor Sahabuddin</p>
+                            <p class="text-xl mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                                mollitia.</p>
+                        </div>
+                        <div class="pl-4">
+                            <button
+                                class="bg-blue-600 text-white px-4 py-1 rounded-full mt-4 shadow hover:bg-blue-700">Read
+                                More</button>
+                        </div>
+                    </div>
+
+
+                    <!-- Card 4 -->
+                    <div class="bg-white rounded-lg shadow-md p-6 mt-10">
+                        <div class="flex items-center">
+                            <img src="/Asset/shagor.png" alt="Sahabuddin Sagor" class="-mt-16">
+                        </div>
+                        <div class="pl-4">
+                            <p class="text-lg text-blue-600 font-medium">By: Sahabuddin Sagor</p>
+                            <p class="text-xl mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                                mollitia.</p>
+                        </div>
+                        <div class="pl-4">
+                            <button
+                                class="bg-blue-600 text-white px-4 py-1 rounded-full mt-4 shadow hover:bg-blue-700">Read
+                                More</button>
+                        </div>
+                    </div>
+
+
+                    <!-- Card 5 -->
+                    <div class="bg-white rounded-lg shadow-md p-6 mt-10">
+                        <div class="flex items-center">
+                            <img src="/Asset/nayem.png" alt="Nayem Khan" class="-mt-16">
+                        </div>
+                        <div class="pl-4">
+                            <p class="text-lg text-blue-600 font-medium">By: Nayem Khan</p>
+                            <p class="text-xl mt-2">Key Takeaways from Robotics Invest 2023</p>
+                        </div>
+                        <div class="pl-4">
+                            <button
+                                class="bg-blue-600 text-white px-4 py-1 rounded-full mt-4 shadow hover:bg-blue-700">Read
+                                More</button>
+                        </div>
+                    </div>
+
+
+                    <!-- Card 6 -->
+                    <div class="bg-white rounded-lg shadow-md p-6 mt-10">
+                        <div class="flex items-center">
+                            <img src="/Asset/shagor_carrot.png" alt="Shagor Sahabuddin" class="-mt-16">
+                        </div>
+                        <div class="pl-4">
+                            <p class="text-lg text-blue-600 font-medium">By: Shagor Sahabuddin</p>
+                            <p class="text-xl mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                                mollitia.</p>
+                        </div>
+                        <div class="pl-4">
+                            <button
+                                class="bg-blue-600 text-white px-4 py-1 rounded-full mt-4 shadow hover:bg-blue-700">Read
+                                More</button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+
+        <hr class="max-w-screen-2xl mx-auto w-11/12 mx-auto border-[#90B8F0] mb-16 md:mb-32">
+
+
+
+        <!-- about WPPOOL -->
+        <section class="max-w-screen-2xl mx-auto">
+            <div class="bg-white rounded-lg p-6 md:p-12 mx-4 md:mx-20 my-10">
+                <div class="flex flex-col lg:flex-row items-center lg:mx-5 xl:mx-12">
+                    <div class=" lg:w-3/5 my-auto text-center lg:text-left mb-14">
+                        <h2 class="text-6xl text-gray-800 mb-4">About WPPOOL</h2>
+                        <h3 class="text-4xl text-[#7D7F81] mb-4">Investing in wppool for over 50 years</h3>
+                        <p class="text-xl mb-6">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel
+                            sint commodi repudiandae
+                            <a href="https://wppool.dev/" target="_blank" class="underline text-black">repudiandae</a>
+                            consequuntur voluptatum
+                            laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio,
+                            eaque rerum! Provident similique accusantium nemo autem.
+                        </p>
+                        <button
+                            class="bg-blue-600 text-white px-6 py-3 rounded-full drop-shadow-2xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 text-xl">
+                            Contact WPPOOL
+                        </button>
+                    </div>
+                    <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center my-auto ">
+                        <div class="w-3/4 h-3/4 bg-gray-300 rounded-lg"></div>
+                        <img src="./Asset/About_wppool.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <hr class=" max-w-screen-2xl mx-auto w-11/12 mx-auto border-[#90B8F0] mt-16 md:mt-32">
+
+
+
+        <!-- WPPOOL Portfolio -->
+        <section class="max-w-screen-2xl mx-auto">
+            <div class=" mx-5 md:mx-20 lg:mx-10 space-y-16 my-20">
+                <div>
+                    <h1 class="text-center text-6xl lg:text-left mb-4">Selected WPPOOL Portfolio Companies</h1>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5  gap-5">
+
+                    <!-- 1 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/ae99cd49-2667-464e-b9db-b39cee0126e1 1.png"
+                                alt="">
+                        </div>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/62e84990058cefbfc33ef312_vendr_logo 1.png"
+                                alt="">
+                        </div>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/image 67.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 4 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/image 50.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 5 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/62e84990058cefbfc33ef312_vendr_logo 1.png"
+                                alt="">
+                        </div>
+                    </div>
+
+                    <!-- 6 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/image 50.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 7 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/image 55.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 8 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/image 52.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 9 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/image 52.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 10 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/image 54.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 11 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/flywire.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 12 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/quovo_logo.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 13 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/Vector.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 14 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/nota_bene_logo 1.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 15 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/Recurly_Logo_Purple 1.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 16 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/Group 169.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 17 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/kensho-social-card 2.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 18 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/e92716bf-074b-46c2-bfdc-82dbfae1da06 2.png"
+                                alt="">
+                        </div>
+                    </div>
+
+                    <!-- 19 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/argyle-black-l 2.png" alt="">
+                        </div>
+                    </div>
+
+                    <!-- 20 -->
+                    <div class="bg-white w-44 xl:w-56 h-28 xl:h-32 rounded-lg flex items-center justify-center ">
+                        <div class="flex items-center justify-center my-12">
+                            <img class="w-4/5" src="./Asset/Portfolio_logos/ss-logo-2color-black 1.png" alt="">
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="max-w-screen-2xl mx-auto py-16">
+            <footer class=" py-10 px-6 md:px-10 lg:px-20 bg-[#E6E6E6] mt-20">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="flex flex-col justify-between text-center md:text-left ">
+                        <div>
+                            <h2 class="text-4xl font-semibold lg:mr-10">Experience remarkable WordPress products with a
+                                new level of power, beauty, and human-centered designs.</h2>
+                        </div>
+                        <div class="gap-10 space-y-4">
+                            <p class="text-[#9FA0A1] text-sm mt-6 font-semibold">&copy;2024 <a href="#"
+                                    class="text-[#9FA0A1] hover:text-gray-800 font-semibold ml-3">Terms of Use</a> <a
+                                    href="#" class="text-[#9FA0A1] hover:text-gray-800 ml-4 font-semibold">Privacy
+                                    Policy</a></p>
+                            <p class="font-semibold text-md mt-2">Lorem ipsum dolor sit amet consectetur adipisicing
+                                elit.
+                                Maxime mollitia,molestiae quas vel sint commodi repudiandae consequuntur voluptatum
+                                laborum
+                                numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio,
+                                eaque
+                                rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius
+                                earum ut molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia
+                                aut!
+                                Impedit sit sunt quaera </p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 ">
+
+                        <div class=" mb-10 md:mb-0">
+                            <h3 class="text-2xl font-semibold text-[#9FA0A1] mb-4">Jump to</h3>
+                            <ul class="text-[#2042B6] text-xl space-y-2">
+                                <li><a href="#" class="hover:text-blue-600 hover:underline">About Us</a></li>
+                                <li><a href="#" class="hover:text-blue-600 hover:underline">Portfolio</a></li>
+                                <li><a href="#" class="hover:text-blue-600 hover:underline">News</a></li>
+                                <li><a href="#" class="hover:text-blue-600 hover:underline">Stories</a></li>
+                                <li><a href="#" class="hover:text-blue-600 hover:underline">Jobs</a></li>
+                            </ul>
+                        </div>
+
+
+                        <div>
+                            <div class="space-y-4 text-xl">
+                                <div>
+                                    <p class="font-semibold">Cambridge</p>
+                                    <p>70728 Yost Burg,<br> North Magdaleneview, UT 97952-2814</p>
+                                </div>
+
+                                <hr class="w-4/5 border-gray-400">
+
+                                <div>
+                                    <p class="font-semibold">London</p>
+                                    <p>Suite 292 903 Stehr Streets,<br> Langworthtown, SC 94577-9465</p>
+                                </div>
+
+                                <hr class="w-4/5 border-gray-400">
+
+                                <div>
+                                    <p class="font-semibold">San Francisco</p>
+                                    <p>19837 Gilberto Lodge,<br> Lake Kendallville, Colorado - 97392, Bhutan</p>
+                                </div>
+
+                                <hr class="w-4/5 border-gray-400">
+
+                            </div>
+                            <div class="mt-6 flex space-x-4 text-gray-600">
+                                <a href="#" class="text-gray-800">
+                                    <img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/svgs/brands/linkedin.svg"
+                                        alt="LinkedIn" class="w-5 h-5">
+                                </a>
+                                <a href="#" class="hover:text-gray-800">
+                                    <img src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/svgs/brands/twitter.svg"
+                                        alt="Twitter" class="w-5 h-5">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </section>
+
+    </div>
+
+
+
+
+
+    <script src="/index.js"></script>
+</body>
+
+</html>

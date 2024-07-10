@@ -1,0 +1,97 @@
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: white;
+}
+
+.element-with-bg {
+    background-image: url('./Asset/Banner_dots.svg');
+    background-size: 45%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* ---------------------------------------------------------- */
+.hidden-logo {
+    display: none;
+}
+.visible-logo {
+    display: block;
+}
+
+.hidden-share {
+    display: none;
+}
+.visible-share {
+    display: block;
+}
+
+.banner-background {
+    background-image: url('./Asset/Rectangle1.png');
+    background-size: cover;
+    background-position: center;
+    /* mix-blend-mode: multiply, multiply; */
+    background-size:  40%;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 40%;
+    box-sizing: border-box;
+}
+
+.scrollbar {
+    overflow-y: scroll;
+    scrollbar-width: thin ;
+    scrollbar-color: #2042B6 #F3F4F6;
+    /* Dark Gray and Light Gray */
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    background: #F3F4F6;
+    /* Light Gray */
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color: #4B5563;
+    /* Dark Gray */
+    border-radius: 10px;
+}
+
+
+
+
+/* responsive */
+
+@media (min-width: 1024px) {
+    .carousel-item {
+        min-width: 40%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .carousel-item {
+        min-width: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    .carousel-item {
+        min-width: 55%;
+    }
+}
